@@ -42,9 +42,9 @@ void draw() {
     i2c.beginTransmission(0x44);  
     i2c.write(1);
     i2c.endTransmission();
-    } catch (Exception e) {
-      print (e.toString());
-    }
+  } catch (Exception e) {
+    print (e.toString());
+  }
   for(int i = 0; i < bands; i++){
     clr = round(spectrum[i] * 256 % 4);
     amp = round(map(min(255, spectrum[i] * 256 * boost), 0, 255, 1, 40));
@@ -75,21 +75,21 @@ void draw() {
       break;
       default :
     }
-      float x = i % square;
-      float y = abs(i / square);
-      rect(x*8, y*8, 8, 8);
-      try {
-        i2c.beginTransmission(0x44);  
-        i2c.write(rgb);
-        i2c.endTransmission();
-      } catch (Exception e) {
-        print (e.toString());
-      }
+    float x = i % square;
+    float y = abs(i / square);
+    rect(x*8, y*8, 8, 8);
+    try {
+      i2c.beginTransmission(0x44);  
+      i2c.write(rgb);
+      i2c.endTransmission();
+    } catch (Exception e) {
+      print (e.toString());
+    }
   }
     try {
-    i2c.beginTransmission(0x44);  
-    i2c.write(2);
-    i2c.endTransmission();
+      i2c.beginTransmission(0x44);  
+      i2c.write(2);
+      i2c.endTransmission();
     } catch (Exception e) {
       print (e.toString());
     }
